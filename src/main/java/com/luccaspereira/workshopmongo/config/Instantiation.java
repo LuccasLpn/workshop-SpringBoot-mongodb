@@ -25,6 +25,7 @@ public class Instantiation implements CommandLineRunner{
 		
 		repository.saveAll(Arrays.asList(maria, alex, bob));
 		
+		
 
 	
 		
