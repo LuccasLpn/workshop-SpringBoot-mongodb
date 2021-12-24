@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.luccaspereira.workshopmongo.domain.User;
 import com.luccaspereira.workshopmongo.dto.UserDTO;
@@ -35,6 +36,19 @@ public class UserService {
 		repository.deleteById(id);
 	}
 	
+	@PutMapping
+	public User update(User obj) {
+		User newobj = findById(obj.getId());
+		updataData(newobj, obj);
+		return repository.save(newobj);
+	}
+	
+	
+	private void updataData(User newobj, User obj) {
+		newobj.setEmail(obj.getName());
+		newobj.setName(obj.getName());
+	}
+
 	public User fromDTO(UserDTO objDto) {
 		return new User(objDto.getId(), objDto.getName(),objDto.getEmail());
 	}
