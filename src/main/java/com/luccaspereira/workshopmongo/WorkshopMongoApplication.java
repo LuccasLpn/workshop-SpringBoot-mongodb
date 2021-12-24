@@ -8,6 +8,6 @@ public class WorkshopMongoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WorkshopMongoApplication.class, args);
-	}
 
+}
 }
